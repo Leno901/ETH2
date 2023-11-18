@@ -10,7 +10,7 @@ contract Assessment {
     event Deposit(uint256 amount);
     event Withdraw(uint256 amount);
     event BalanceMultiplied(uint256 previousBalance, uint256 newBalance);
-    event BalanceDivided(uint256 previousBalance, uint256 newBalance);
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 
     constructor(uint initBalance) payable {
         owner = payable(msg.sender);
@@ -19,6 +19,14 @@ contract Assessment {
 
     function getBalance() public view returns (uint256) {
         return balance;
+    }
+
+    function isOwner(address _address) public view returns (bool) {
+        return _address == owner;
+    }
+
+    function getContractAddress() public view returns (address) {
+        return address(this);
     }
 
     function deposit(uint256 _amount) public payable {
@@ -73,19 +81,5 @@ contract Assessment {
         emit BalanceMultiplied(_previousBalance, balance);
     }
 
-    function divideBalance(uint256 _divider) public {
-        // make sure this is the owner
-        require(msg.sender == owner, "You are not the owner of this account");
 
-        uint256 _previousBalance = balance;
-
-        // divide the balance
-        balance /= _divider;
-
-        // assert the balance is correct
-        assert(balance == _previousBalance / _divider);
-
-        // emit the event
-        emit BalanceDivided(_previousBalance, balance);
-    }
 }
