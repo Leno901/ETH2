@@ -19,30 +19,31 @@ This is a simple React application that serves as an interface to interact with 
 ## Getting Started
 
 1. Clone the repository:
-
    ```bash
    git clone https://github.com/Leno901/ETH2.git
    cd ethereum-atm-app
 2. Install Dependencies:
-
     ```bash
    npm i
+   Open Two Additional Terminals
     
-3.Open Two Additional Terminals:
-In the second terminal, run a local Ethereum node:
-    ```bash
-npx hardhat node
+3. In the second terminal, run a local Ethereum node
+   ```bash
+   npx hardhat node
 
 4. In the third terminal, deploy the smart contract:
-```bash
-npx hardhat run --network localhost scripts/deploy.js
-
-5.Return to the First Terminal:
-
    ```bash
-npm run dev
+   npx hardhat run --network localhost scripts/deploy.js
+
+5. Return to the First Terminal:
+   ```bash
+   npm run dev
 
 6. Open in Browser:
 Open the following URL in your browser to interact with the application:
-http://localhost:3000
-   
+   ```bash
+   http://localhost:3000
+
+## Author
+   John Bulos
+   https://github.com/Leno901
