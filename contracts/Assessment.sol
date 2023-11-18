@@ -65,21 +65,4 @@ contract Assessment {
         emit Withdraw(_withdrawAmount);
     }
 
-    function multiplyBalance(uint256 _multiplier) public {
-        // make sure this is the owner
-        require(msg.sender == owner, "You are not the owner of this account");
-
-        uint256 _previousBalance = balance;
-
-        // multiply the balance
-        balance *= _multiplier;
-
-        // assert the balance is correct
-        assert(balance == _previousBalance * _multiplier);
-
-        // emit the event
-        emit BalanceMultiplied(_previousBalance, balance);
-    }
-
-
 }
