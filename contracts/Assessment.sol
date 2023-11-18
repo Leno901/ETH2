@@ -9,8 +9,6 @@ contract Assessment {
 
     event Deposit(uint256 amount);
     event Withdraw(uint256 amount);
-    event BalanceMultiplied(uint256 previousBalance, uint256 newBalance);
-    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 
     constructor(uint initBalance) payable {
         owner = payable(msg.sender);
